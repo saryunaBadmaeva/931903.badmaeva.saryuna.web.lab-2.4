@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Text Box";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post" style="margin: 5px">
+    <div><b>Text</b></div>
+    @Html.TextBox("result", "")
+    <p>
+        <input type="submit" class="btn btn-outline-dark" value="Submit" style="margin-top: 5px"/>
+    </p>
+</form>
+

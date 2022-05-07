@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "List Box";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post" style="margin: 5px">
+    <div><b>Months</b></div>
+    @Html.ListBox("result",
+     new MultiSelectList(new[] { "January", "February", "March", "April", "May", "June", "July"
+         , "August", "September", "October", "November", "December" }))
+    <p>
+        <input type="submit" class="btn btn-outline-dark" value="Submit" style="margin-top: 5px"/>
+    </p>
+</form>

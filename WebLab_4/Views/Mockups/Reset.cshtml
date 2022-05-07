@@ -1,0 +1,58 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Reset your password";
+    <h2 span style="margin: 15px; margin-left:0">Reset your password</h2>
+
+    @if (ViewData["KnownEmail"] is false)
+    {
+        @using (Html.BeginForm())
+        {
+            <div>
+                <b><label asp-for="Email"></label></b><br />
+                <input type="text" asp-for=" ResetEmail" />
+                <span asp-validation-for="ResetEmail" />
+            </div>
+            <br />
+
+            <div>
+                <input class="btn btn-outline-dark" type="submit" value="Send me a code" name="Action" />
+                <input class="btn btn-outline-dark" type="submit" value="I have a code" name="Action" />
+            </div>
+        }
+    }
+    else
+    {
+        if (ViewData["Code"] != null)
+        {
+            @using (Html.BeginForm())
+            {
+                <div>
+                    <label><b>Code:</b> @ViewData["Code"]</label>
+                </div>
+                <div>
+                    <input  class="btn btn-outline-dark" type="submit" value="I have a code" name="Action" />
+                </div>
+            }
+        }
+        else
+        {
+            @using (Html.BeginForm("Index", "Mockups", FormMethod.Post))
+            {
+                <div>
+                    <b><label asp-for="Code"></label></b><br />
+                    <input type="text" asp-for="Code" />
+                    <span asp-validation-for="Code" />
+                </div>
+                <br />
+                <div>
+                    <input class="btn btn-outline-dark" type="submit" value="Verify" name="Action" />
+                </div>
+            }
+        }
+    }
+}
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

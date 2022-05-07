@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Drop-down List";
+}
+
+<h1>@ViewData["Title"]</h1>
+    <form method="post" style="margin: 5px">
+        <div><b>Month</b></div>
+        @Html.DropDownList("result",
+        new SelectList(new[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" } ), "Chose")
+        <p>
+            <input type="submit" class="btn btn-outline-dark" value="Submit" style="margin-top: 5px"/>
+        </p>
+    </form>
